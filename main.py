@@ -26,16 +26,18 @@ def main():
     with open(path_to_file) as f:
         file_contents = f.read()
 
-    #print(file_contents)
-
     word_count = count_words(file_contents)
+    print(f"--- Beginn report of {path_to_file} ---")
     print(f"Total number of words in the book: {word_count}")
+    print()
 
     character_count = count_characters(file_contents)
-    print(f"Character frequencies:\n{character_count}")
+    #print(f"Character frequencies:\n{character_count}")
 
     sorted_char_count = char_count_sort(character_count)
-    print(f"Character sorted: \n{sorted_char_count}")
+    for char, count in sorted_char_count.items():
+        print(f"The '{char}' character was found {count} times")
+    print("--- End report ---")
 
 if __name__ == "__main__":
     main()
